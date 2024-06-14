@@ -1,0 +1,45 @@
+version: '3.9'
+services:
+  mongo:
+    container_name: fs-blueprint-mongo
+    image: mongo:latest
+    hostname: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - type: volume
+        source: mongo-data
+        target: /data/db
+        volume:
+          nocopy: true 
+
+  backend:
+    build: ./backend
+    container_name: fs-blueprint-backend
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    volumes:
+      - ./backend:/app
+    environment:
+      - NODE_ENV=development
+    ports:
+      - 4005:4005
+    command: npm run live
+  
+  frontend:
+    build: ./frontend
+    container_name: fs-blueprint-frontend
+    volumes:
+      - ./frontend:/app
+    environment:
+      - NODE_ENV=development
+    ports:
+      - 3000:3000
+    command: npm start
+  
+volumes:
+  mongo-data:
+    driver: local

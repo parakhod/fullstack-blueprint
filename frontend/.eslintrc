@@ -1,0 +1,8 @@
+{
+    "extends": ["react-app"],
+    "rules": {
+      "indent": ["warn", 2],
+      "no-trailing-spaces": "warn"
+    }
+  }
+  
