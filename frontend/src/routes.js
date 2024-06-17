@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 
 import {
   Home,
-  Test
+  Transcribe
 } from './pages'
 
 export const routes = [
@@ -12,8 +12,8 @@ export const routes = [
     element: <Home />
   },
   {
-    path: "/test",
-    element: <Test />
+    path: "/transcribe",
+    element: <Transcribe />
   },
   {
     path: "*",

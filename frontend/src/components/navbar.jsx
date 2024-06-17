@@ -15,11 +15,11 @@ const Navbar = ({ current = 'home' }) => (
       </Menu.Item>
       <Menu.Item
         as={ Link }
-        name='test'
-        active={current === 'test'}
-        to='/test'
+        name='transcribe'
+        active={current === 'transcribe'}
+        to='/transcribe'
       >
-        Test
+        Transcribe
       </Menu.Item>
     </Menu>
   </Segment>

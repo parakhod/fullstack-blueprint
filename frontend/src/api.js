@@ -8,4 +8,13 @@ const api = axios.create({
   timeout: 5000,
 })
 
-export { api, axios }
+const uploadFile = (url, file) => {
+  const formData = new FormData();
+  formData.append("file", file);
+  return api.post('/transcribe-audio', formData, {
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }})
+}
+
+export { api, uploadFile, axios }
